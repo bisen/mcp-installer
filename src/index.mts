@@ -279,19 +279,6 @@ async function installRepoMcpServer(
     };
   }
   
-  try {
-    await spawnPromise("uvx", ["--version"]);
-    return true;
-  } catch (e) {
-    return { content: [
-      {
-        type: "text",
-        text: e,
-      },
-    ],
-    isError: true,  
-  }
-
   if (!(await hasUvx())) {
     return {
       content: [
